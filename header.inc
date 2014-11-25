@@ -19,9 +19,9 @@
   <div class="sidebar1">
     <ul class="nav">
       <li><a href="cadastro.php">Cadastro</a></li>
-      <li><a href="#">Link two</a></li>
-      <li><a href="#">Link three</a></li>
-      <li><a href="#">Link four</a></li>
+      <li><a href="consulta.php">Consulta</a></li>
+      <!--<li><a href="#">Link three</a></li>
+      <li><a href="#">Link four</a></li>-->
     </ul>
     <aside>
       <p> Nada </p>

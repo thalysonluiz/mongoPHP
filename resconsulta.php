@@ -10,6 +10,8 @@
    //echo "Collection created succsessfully\n";
    $collection = $db->books;
    //echo "Collection selected succsessfully\n";
+   
+	$assunto = $_POST['assunto'];
 
 	include_once('header.inc');
 ?>
@@ -17,16 +19,16 @@
     <h1>Últimos Posts</h1>
     <section>
     	<?php
-			$cursor = $collection->find();
+		
+			$query = array( 'titulo' => array ('$all' => array(new MongoRegex('/'.$assunto.'/i'))));
+			$cursor = $collection->find($query);
 			$qtdeBooks = $cursor->count();
 			
 			if($qtdeBooks > 0){
 			   // iterate cursor to display title of documents
 			   foreach ($cursor as $document) {
 				  echo "<h4>".$document["titulo"]."</h4>";
-				  echo "<p>".$document["descricao"]."</p>";
-				  
-				  echo '<a href="#">Comentários</a><hr />';
+				  echo "<p>".$document["descricao"]."</p><hr />";
 			   }
 			}
 			else{

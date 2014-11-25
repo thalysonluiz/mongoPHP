@@ -19,7 +19,7 @@
                 <p class="hint">Descrição do Livro.</p>
             </div>
              
-            <input type="submit" name="Submit"  class="button" value="Submit" />
+            <input type="submit" name="cadastrar"  class="button" value="Cadastrar" />
         </form>
      
     </section>
