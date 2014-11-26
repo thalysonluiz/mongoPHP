@@ -12,22 +12,24 @@
    //echo "Collection selected succsessfully\n";
 
 	include_once('header.inc');
+	$id = $_GET['id']; 
 ?>
   <article class="content">
-    <h1>Últimos Posts</h1>
+    <h1>Post</h1>
     <section>
     	<?php
-			$cursor = $collection->find();
-			$qtdeBooks = $cursor->count();
-			
-			if($qtdeBooks > 0){
-			   // iterate cursor to display title of documents
-			   foreach ($cursor as $document) {
-				  echo "<h4><a href=\"post.php?id=".$document["_id"]."\" >".$document["titulo"]."</a></h4>";
-				  echo "<p>".$document["descricao"]."</p>";
+			//$query = array('_id' => $id);
+			//print_r($query);
+			$cursor = $collection->findOne(array('_id' => new MongoId($id)));
+			//$qtdeBooks = $cursor->count();
+			//print_r($cursor);
+			if($cursor){
+				echo "<h4>".$cursor["titulo"]."</h4>";
+				echo "<p>".$cursor["descricao"]."</p>";
 				  
-				  echo '<a href="#">Comentários</a><hr />';
-			   }
+				echo '<a href="index.php">Voltar</a><hr />';
+				echo '<a href="#">Comentários</a><hr />';
+			   
 			}
 			else{
 				echo "<p>Nenhum post cadastrado!</p>";
